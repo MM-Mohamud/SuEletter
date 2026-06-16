@@ -403,11 +403,26 @@ document.getElementById("passwordInput")
 
 /* MOBILE TAP */
 
-const book =
-document.getElementById("book");
+const book = document.getElementById("book");
 
-book.addEventListener("click",()=>{
+// Mobile tap toggle
+book.addEventListener("click", (e) => {
+    e.stopPropagation();
     book.classList.toggle("open");
+});
+
+// Desktop hover
+book.addEventListener("mouseenter", () => {
+    book.classList.add("open");
+});
+
+book.addEventListener("mouseleave", () => {
+    book.classList.remove("open");
+});
+
+// Close when clicking elsewhere
+document.addEventListener("click", () => {
+    book.classList.remove("open");
 });
 
 /* COUNTDOWN */
